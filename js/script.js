@@ -7,7 +7,7 @@ db.changes({
     since: 'now',
     live: true
 }).on('change', function () {});//o function vc preenche com o nome da função que quer chamar quando
-                                //ocorrer mudanças no servidor
+//ocorrer mudanças no servidor
 function busca() {
     db.find({
         selector: {nome: 'Paulo'}
@@ -84,11 +84,33 @@ function inserir() {
     });
 }
 
+function insercaoInicial() {
+    db.put({
+        nome: "Paulo",
+        type: "pessoa",
+        idade: 302,
+        filhos: [
+            {
+                nome: "joana",
+                idade: 12
+            },
+            {
+                nome: "jupira",
+                idade: 2
+            }
+        ]
+    }).then(function (response) {
+        // handle response
+    }).catch(function (err) {
+        console.log(err);
+    });
+}
 
 
 
 window.onload = function () {
     if (remoteCouch) {
+        insercaoInicial();
         sincronizacao();
     }
     document.querySelector("#busca-especifica").addEventListener("click", function (event) {
