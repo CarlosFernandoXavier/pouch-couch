@@ -64,17 +64,18 @@ function consultaComplexa() { //Usar apenas em último caso, pois há um custo c
 
 function inserir() {
     db.put({
+        _id: "2",
         nome: 'Pixote',
-        "type": "pessoa",
-        "idade": 2,
-        "filhos": [
+        type: "pessoa",
+        idade: 2,
+        filhos: [
             {
-                "nome": "Gioconda",
-                "idade": 24
+                nome: "Gioconda",
+                idade: 24
             },
             {
-                "nome": "Anastácia",
-                "idade": 21
+                nome: "Anastácia",
+                idade: 21
             }
         ]
     }).then(function (response) {
@@ -86,6 +87,7 @@ function inserir() {
 
 function insercaoInicial() {
     db.put({
+        _id: "1",
         nome: "Paulo",
         type: "pessoa",
         idade: 302,
